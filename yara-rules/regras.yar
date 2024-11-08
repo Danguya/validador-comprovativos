@@ -9,8 +9,9 @@ rule ATLANTICO {
                 $pattern = "iText-5.5.13.3"
                 $font = "Helvetica"
                 $segundafont = "Helvetica-Bold"
+                $terceirafont = "ZapfDingbats"
                 $byterange = "0 482 16868"
 
         condition:
-                ($magic and $pattern) and ($font and $segundafont) and $byterange //and (filesize >= 25600 and filesize <= 28672)
+                ($magic and $pattern) and ($font and $segundafont and $terceirafont) and $byterange //and (filesize >= 25600 and filesize <= 28672)
 }
