@@ -44,12 +44,18 @@ app.post('/scan', upload.single('file'), (req, res) => {
     if (error) return res.status(500).json({ error: `Erro ao executar YARA: ${error.message}` });
     if (stderr) return res.status(500).json({ error: `stderr: ${stderr}` });
 
-    if (stdout.includes('ATLANTICO')) {
-      return res.json({ message: 'ATLANTICO' });
-    } else if (stdout.includes('BAI')) {
-      return res.json({ message: 'BAI' });
-    } else if (stdout.includes('BIC')) {
-      return res.json({ message: 'BIC' });
+    if (stdout.includes('MCX_ATLANTICO')) {
+      return res.json({ message: 'Comprovado' });
+    } else if (stdout.includes('MCX_BCI')) {
+      return res.json({ message: 'Comprovado' });
+    } else if (stdout.includes('MCX_KEVE')) {
+      return res.json({ message: 'Comprovado' });
+    } else if (stdout.includes('MCX_BAI')) {
+      return res.json({ message: 'Comprovado' });
+    } else if (stdout.includes('MCX_BFA')) {
+      return res.json({ message: 'Comprovado' });
+    } else if (stdout.includes('MCX_STANDARD_BANK')) {
+      return res.json({ message: 'Comprovado' });
     } else {
       return res.json({ message: 'Comprovativo inválido ou falsificado' });
     }
